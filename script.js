@@ -12,8 +12,33 @@ const DB = {
 };
 
 // Seed admin account
+// (function seed() {
+//   const users = DB.users;
+//   if (!users.find(u => u.email === 'admin@college.edu')) {
+//     users.push({
+//       id: 'admin-001',
+//       name: 'Administrator',
+//       email: 'admin@college.edu',
+//       password: 'admin123',
+//       role: 'admin',
+//       dept: 'Administration',
+//       studentId: 'ADMIN'
+//     }, {
+//       id: 'user-001',
+//       name: 'Nishant Dangol',
+//       email: 'test@test.test',
+//       password: 'test',
+//       role: 'user',
+//       dept: '',
+//       studentId: '12'
+//     });
+//     DB.users = users;
+//   }
+
+
 (function seed() {
-  const users = DB.users;
+  const users = DB.users || [];
+
   if (!users.find(u => u.email === 'admin@college.edu')) {
     users.push({
       id: 'admin-001',
@@ -23,7 +48,11 @@ const DB = {
       role: 'admin',
       dept: 'Administration',
       studentId: 'ADMIN'
-    }, {
+    });
+  }
+
+  if (!users.find(u => u.email === 'test@test.test')) {
+    users.push({
       id: 'user-001',
       name: 'Nishant Dangol',
       email: 'test@test.test',
@@ -32,8 +61,10 @@ const DB = {
       dept: '',
       studentId: '12'
     });
-    DB.users = users;
   }
+
+  DB.users = users;
+})();
 
   // Seed demo complaints if empty
   if (DB.complaints.length === 0) {
