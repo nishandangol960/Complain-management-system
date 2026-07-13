@@ -1,0 +1,12 @@
+Name: nijon 18
+Age: 18
+Salary: 20000.00
+
+Name: nishan
+Age: 20
+Salary: 22000.00
+
+Name: ram
+Age: 23
+Salary: 18000.00
+
