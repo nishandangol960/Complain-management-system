@@ -23,6 +23,14 @@ const DB = {
       role: 'admin',
       dept: 'Administration',
       studentId: 'ADMIN'
+    }, {
+      id: 'user-001',
+      name: 'Nishant Dangol',
+      email: 'test@test.test',
+      password: 'test',
+      role: 'user',
+      dept: '',
+      studentId: '12'
     });
     DB.users = users;
   }
