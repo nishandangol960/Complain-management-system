@@ -35,7 +35,6 @@ const DB = {
 //     DB.users = users;
 //   }
 
-
 (function seed() {
   const users = DB.users || [];
 
@@ -64,21 +63,25 @@ const DB = {
   }
 
   DB.users = users;
-})();
 
-  // Seed demo complaints if empty
+  // Seed demo complaints
   if (DB.complaints.length === 0) {
     const demoUser = users.find(u => u.role !== 'admin');
+
     if (demoUser) {
       DB.complaints = [
-        { id: cid(), userId: demoUser.id, userName: demoUser.name,
-          title: 'Wi-Fi not working in Block B', category: 'IT / Wi-Fi', priority: 'High',
-          desc: 'Internet connectivity has been down for 3 days in Block B hostel rooms 201-210.',
-          status: 'In Progress', date: new Date(Date.now()-3*864e5).toISOString(), note: 'IT team is investigating the router.' },
-        { id: cid(), userId: demoUser.id, userName: demoUser.name,
-          title: 'Library books not available', category: 'Library', priority: 'Normal',
-          desc: 'Several reference books listed in the syllabus are missing from the library.',
-          status: 'Resolved', date: new Date(Date.now()-7*864e5).toISOString(), note: 'New stock ordered and shelved.' },
+        {
+          id: cid(),
+          userId: demoUser.id,
+          userName: demoUser.name,
+          title: 'Wi-Fi not working in Block B',
+          category: 'IT / Wi-Fi',
+          priority: 'High',
+          desc: 'Internet connectivity has been down.',
+          status: 'In Progress',
+          date: new Date(Date.now() - 3 * 864e5).toISOString(),
+          note: 'IT team is investigating.'
+        }
       ];
     }
   }
